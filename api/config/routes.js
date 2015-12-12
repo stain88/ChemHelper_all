@@ -4,13 +4,13 @@ var express  = require('express'),
 var elementsController = require('../controllers/elementsController.js');
 
 router.route('/elements')
-  .get(elementsController.elementsIndex)
+  .get(elementsController.getElements)
   .post(elementsController.addElement);
 
 router.route('/elements/:id')
-  .get(elementsController.elementsShow)
-  .put(elementsController.elementsUpdate)
-  .patch(elementsController.elementsUpdate)
-  .delete(elementsController.elementsDelete);
+  .get(elementsController.getElement)
+  .put(elementsController.updateElement)
+  .patch(elementsController.updateElement)
+  .delete(elementsController.deleteElement);
 
 module.exports = router;
