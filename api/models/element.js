@@ -7,7 +7,7 @@ var elementSchema = new mongoose.Schema({
   position: Number,
   small: String,
   molar: Number,
-  electrons: [];
+  electrons: []
 })
 
 module.exports = mongoose.model('Element', elementSchema);
