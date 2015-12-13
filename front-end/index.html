@@ -21,8 +21,8 @@
       <!-- <input type="text" ng-model="elem.selectedElement" uib-typeahead="element as element.name for element in elem.all | filter:$viewValue | limitTo:8" class="form-control" autocomplete="off"> -->
       <svg width="900" height="600">
         <g ng-repeat="element in elem.all">
-          <rect width="50" height="60" ng-attr-x="{{element.position * 50}}" ng-attr-y="{{element.electrons.length * 60}}" ng-class="{hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="{{element.group}}" ng-click="elem.selectElement(element)"/>
-          <text width="50" height="60" ng-attr-x="{{element.position * 50 + 25}}" ng-attr-y="{{element.electrons.length * 60 + 30}}" alignment-baseline="middle" text-anchor="middle">{{element.small}}</text>
+          <rect width="50" height="60" ng-attr-x="{{element.position * 50}}" ng-attr-y="{{(element.electrons.length - 1) * 60}}" ng-class="{hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="{{element.group}}" ng-click="elem.selectElement(element)"/>
+          <text width="50" height="60" ng-attr-x="{{element.position * 50 + 25}}" ng-attr-y="{{(element.electrons.length - 1) * 60 + 30}}" alignment-baseline="middle" text-anchor="middle">{{element.small}}</text>
         </g>
       </svg>
 
