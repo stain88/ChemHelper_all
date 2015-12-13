@@ -15,23 +15,23 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="container">
+    <main ng-controller = "ElementsController as elem">
+      <h1 text-center>Periodic Table</h1>
+      <!-- <input type="text" ng-model="elem.selectedElement" uib-typeahead="element as element.name for element in elem.all | filter:$viewValue | limitTo:8" class="form-control" autocomplete="off"> -->
+      <svg width="900" height="600">
+        <g ng-repeat="element in elem.all">
+          <rect width="50" height="60" ng-attr-x="{{element.position * 50}}" ng-attr-y="{{element.electrons.length * 60}}" ng-class="{hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="{{element.group}}" ng-click="elem.selectElement(element)"/>
+          <text width="50" height="60" ng-attr-x="{{element.position * 50 + 25}}" ng-attr-y="{{element.electrons.length * 60 + 30}}" alignment-baseline="middle" text-anchor="middle">{{element.small}}</text>
+        </g>
+      </svg>
 
-  <main ng-controller = "ElementsController as elem">
-    <h1>Periodic Table</h1>
-    <input type="text" ng-model="elem.selectedElement" uib-typeahead="element as element.name for element in elem.all | filter:$viewValue | limitTo:8" class="form-control" autocomplete="off">
-    <svg width="900" height="600">
-      <g ng-repeat="element in elem.all">
-        <rect width="50" height="60" ng-attr-x="{{element.position * 50}}" ng-attr-y="{{element.electrons.length * 60}}" ng-class="{hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="{{element.group}}" ng-click="elem.selectElement(element)"/>
-        <text width="50" height="60" ng-attr-x="{{element.position * 50 + 25}}" ng-attr-y="{{element.electrons.length * 60 + 30}}" alignment-baseline="middle" text-anchor="middle">{{element.small}}</text>
-      </g>
-    </svg>
-
-    <section ng-show="elem.selectedElement">
-      <ul>
-        <li> {{elem.selectedElement.name}}, mass: {{elem.selectedElement.molar}}, groups: {{elem.selectedElement.group}}</li>
-      </ul>
-    </section>
-  </main>
-  
+      <section ng-show="elem.selectedElement">
+        <ul>
+          <li> {{elem.selectedElement.name}}, mass: {{elem.selectedElement.molar}}, groups: {{elem.selectedElement.group}}</li>
+        </ul>
+      </section>
+    </main>
+  </div>
 </body>
 </html>

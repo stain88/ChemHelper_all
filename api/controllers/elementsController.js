@@ -37,6 +37,7 @@ function updateElement(req, res) {
     element.position = req.body.position || element.position;
     element.small = req.body.small || element.small;
     element.molar = req.body.molar || element.molar;
+    element.electrons = req.body.electrons || element.electrons;
 
     element.save(function(err) {
       if (err) res.json({message: 'could not update element: ' + err});

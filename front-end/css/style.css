@@ -3,8 +3,16 @@
   stroke-width: 2;
 }
 
-.Alkali, .Nonmetal {
+.Alkali {
+  fill: blue;
+} 
+
+.Nonmetal {
   fill: green;
+}
+
+.OtherMetal {
+  fill: cyan;
 }
 
 .Noble {
@@ -12,7 +20,7 @@
 }
 
 .Alkaline {
-  fill: blue;
+  fill: red;
 }
 
 .Metalloid {
@@ -23,8 +31,20 @@
   fill: pink;
 }
 
+.Transition {
+  fill: yellow;
+}
+
+.Lanthanoid {
+  fill: gold;
+}
+
 .hover {
-  outline: 2px solid gold;
+  outline: 2px solid silver;
+}
+
+svg {
+  margin: 0 auto;
 }
 
 text {
