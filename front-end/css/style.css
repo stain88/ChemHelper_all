@@ -4,7 +4,7 @@
 }
 
 .Alkali {
-  fill: blue;
+  fill: hsl(225,70%,50%);
 } 
 
 .Nonmetal {
@@ -50,4 +50,9 @@ svg {
 text {
   font-family: 'Mountains of Christmas', cursive;
   font-size: 20px;
+}
+
+#atom {
+  width: 100%;
+  border: 1px solid white;
 }

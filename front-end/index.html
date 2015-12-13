@@ -17,17 +17,7 @@
 <body>
   <div class="container">
     <main ng-controller = "ElementsController as elem">
-      <section id="table">
-        <h1 text-center>Periodic Table</h1>
-        <!-- <input type="text" ng-model="elem.selectedElement" uib-typeahead="element as element.name for element in elem.all | filter:$viewValue | limitTo:8" class="form-control" autocomplete="off"> -->
-        <svg width="900" height="600">
-          <g ng-repeat="element in elem.all">
-            <rect width="50" height="60" ng-attr-x="{{element.position * 50}}" ng-attr-y="{{(element.electrons.length - 1) * 60}}" ng-class="{hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="{{element.group}}" ng-click="elem.selectElement(element)"/>
-            <text width="50" height="60" ng-attr-x="{{element.position * 50 + 25}}" ng-attr-y="{{(element.electrons.length - 1) * 60 + 30}}" alignment-baseline="middle" text-anchor="middle">{{element.small}}</text>
-          </g>
-        </svg>
-      </section>
-      
+      <h1 text-center>Periodic Table</h1>
       <section id="#info" ng-show="elem.selectedElement.name">
         <div class="row">
           <div class="col-md-8">
@@ -40,9 +30,25 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4"></div>
+          
+          <div class="col-md-4">
+            <g>
+              <svg id="atom">
+                <circle cx="50%" cy="50%" ng-attr-r="{{elem.selectedElement.protonSize}}" stroke="white" fill="yellow" />
+              </svg>
+            </g>
+          </div>
         </div>
       </section>
+      <section id="table">
+        <!-- <input type="text" ng-model="elem.selectedElement" uib-typeahead="element as element.name for element in elem.all | filter:$viewValue | limitTo:8" class="form-control" autocomplete="off"> -->
+        <svg width="900" height="600">
+          <g ng-repeat="element in elem.all" ng-click="elem.selectElement(element)">
+            <rect width="50" height="60" ng-attr-x="{{element.position * 50}}" ng-attr-y="{{(element.electrons.length - 1) * 60}}" ng-class="{hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="{{element.group}}"/>
+            <text width="50" height="60" ng-attr-x="{{element.position * 50 + 25}}" ng-attr-y="{{(element.electrons.length - 1) * 60 + 30}}" alignment-baseline="middle" text-anchor="middle">{{element.small}}</text>
+          </g>
+        </svg>
+      </section>      
     </main>
   </div>
 </body>

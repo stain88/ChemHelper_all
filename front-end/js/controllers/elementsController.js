@@ -26,6 +26,7 @@ function ElementsController(Element) {
   self.selectElement = function(element) {
     Element.get({id: element._id}, function(ele) {
       self.selectedElement = ele.element;
+      self.selectedElement.protonSize = Math.sqrt(ele.element.number)+20;
     });
   }
 
