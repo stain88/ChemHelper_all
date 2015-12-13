@@ -17,19 +17,31 @@
 <body>
   <div class="container">
     <main ng-controller = "ElementsController as elem">
-      <h1 text-center>Periodic Table</h1>
-      <!-- <input type="text" ng-model="elem.selectedElement" uib-typeahead="element as element.name for element in elem.all | filter:$viewValue | limitTo:8" class="form-control" autocomplete="off"> -->
-      <svg width="900" height="600">
-        <g ng-repeat="element in elem.all">
-          <rect width="50" height="60" ng-attr-x="{{element.position * 50}}" ng-attr-y="{{(element.electrons.length - 1) * 60}}" ng-class="{hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="{{element.group}}" ng-click="elem.selectElement(element)"/>
-          <text width="50" height="60" ng-attr-x="{{element.position * 50 + 25}}" ng-attr-y="{{(element.electrons.length - 1) * 60 + 30}}" alignment-baseline="middle" text-anchor="middle">{{element.small}}</text>
-        </g>
-      </svg>
-
-      <section ng-show="elem.selectedElement">
-        <ul>
-          <li> {{elem.selectedElement.name}}, mass: {{elem.selectedElement.molar}}, groups: {{elem.selectedElement.group}}</li>
-        </ul>
+      <section id="table">
+        <h1 text-center>Periodic Table</h1>
+        <!-- <input type="text" ng-model="elem.selectedElement" uib-typeahead="element as element.name for element in elem.all | filter:$viewValue | limitTo:8" class="form-control" autocomplete="off"> -->
+        <svg width="900" height="600">
+          <g ng-repeat="element in elem.all">
+            <rect width="50" height="60" ng-attr-x="{{element.position * 50}}" ng-attr-y="{{(element.electrons.length - 1) * 60}}" ng-class="{hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="{{element.group}}" ng-click="elem.selectElement(element)"/>
+            <text width="50" height="60" ng-attr-x="{{element.position * 50 + 25}}" ng-attr-y="{{(element.electrons.length - 1) * 60 + 30}}" alignment-baseline="middle" text-anchor="middle">{{element.small}}</text>
+          </g>
+        </svg>
+      </section>
+      
+      <section id="#info" ng-show="elem.selectedElement.name">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h2 class="panel-title">{{elem.selectedElement.name}}</h2>
+              </div>
+              <div class="panel-body">
+                {{elem.selectedElement.name}} has {{elem.selectedElement.number}} protons, and a molar mass of {{elem.selectedElement.molar}}. It belongs to the {{elem.selectedElement.group.split(" ")[1]}} elements.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
       </section>
     </main>
   </div>
