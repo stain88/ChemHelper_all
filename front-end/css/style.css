@@ -1,0 +1,33 @@
+.Element {
+  stroke: white;
+  stroke-width: 2;
+}
+
+.Alkali, .Nonmetal {
+  fill: green;
+}
+
+.Noble {
+  fill: orange;
+}
+
+.Alkaline {
+  fill: blue;
+}
+
+.Metalloid {
+  fill: purple;
+}
+
+.Halogen {
+  fill: pink;
+}
+
+.hover {
+  outline: 2px solid gold;
+}
+
+text {
+  font-family: 'Mountains of Christmas', cursive;
+  font-size: 20px;
+}

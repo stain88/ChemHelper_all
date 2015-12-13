@@ -9,7 +9,7 @@ function ElementsController(Element) {
   self.addElement = addElement;
   self.removeElement = removeElement;
   self.newElement = {};
-  self.selectedElement = {};
+  self.selectedElement;
 
   self.getElements = function() {
     self.all = Element.query();
@@ -22,6 +22,12 @@ function ElementsController(Element) {
   function removeElement(id) {
 
   };
+
+  self.selectElement = function(element) {
+    Element.get({id: element._id}, function(ele) {
+      self.selectedElement = ele.element;
+    });
+  }
 
   self.getElements();
 
