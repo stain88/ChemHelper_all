@@ -42,7 +42,7 @@ function updateElement(req, res) {
     element.save(function(err) {
       if (err) res.json({message: 'could not update element: ' + err});
 
-      res.json({message: 'element successfully update', element: element});
+      res.json({message: 'element successfully updated', element: element});
     });
   });
 };
