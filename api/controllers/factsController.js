@@ -56,3 +56,10 @@ function factDelete(req, res) {
   });
 };
 
+module.exports = {
+  factsIndex: factsIndex,
+  factCreate: factCreate,
+  factShow: factShow,
+  factUpdate: factUpdate,
+  factDelete: factDelete
+};
