@@ -57,20 +57,65 @@ text {
   border: 1px solid white;
 }
 
-.electronS {
-  animation: electronSOrbit 4s linear infinite;
+.electronK {
+  animation: electronKOrbit 3s linear infinite;
+}
+
+@keyframes electronKOrbit {
+  0% { transform: rotate(0deg) translate(70px) rotate(0deg); }
+  100%   { transform: rotate(360deg) translate(70px) rotate(-360deg); }
+}
+
+.electronL {
+  animation: electronLOrbit 5s linear infinite;
+}
+
+@keyframes electronLOrbit {
+  from {transform: rotate(0deg) translate(100px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(100px) rotate(-360deg);}
+}
+
+.electronM {
+  animation: electronMOrbit 7s linear infinite;
+}
+
+@keyframes electronMOrbit {
+  from {transform: rotate(0deg) translate(130px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(130px) rotate(-360deg);}
+}
+
+.electronN {
+  animation: electronNOrbit 9s linear infinite;
+}
+
+@keyframes electronNOrbit {
+  from {transform: rotate(0deg) translate(160px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(160px) rotate(-360deg);}
+}
+
+.electronO {
+  animation: electronOOrbit 11s linear infinite;
+}
+
+@keyframes electronOOrbit {
+  from {transform: rotate(0deg) translate(190px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(190px) rotate(-360deg);}
 }
 
 .electronP {
-  animation: electronPOrbit 6s linear infinite;
-}
-
-@keyframes electronSOrbit {
-  from { transform: rotate(0deg) translateX(70px) rotate(0deg); }
-  to   { transform: rotate(360deg) translateX(70px) rotate(-360deg); }
+  animation: electronPOrbit 13s linear infinite;
 }
 
 @keyframes electronPOrbit {
-  from {transform: rotate(0deg) translateX(150px) rotate(0deg);}
-  to {transform: rotate(360deg) translateX(150px) rotate(-360deg);}
+  from {transform: rotate(0deg) translate(220px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(220px) rotate(-360deg);}
+}
+
+.electronQ {
+  animation: electronQOrbit 15s linear infinite;
+}
+
+@keyframes electronQOrbit {
+  from {transform: rotate(0deg) translate(250px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(250px) rotate(-360deg);}
 }
