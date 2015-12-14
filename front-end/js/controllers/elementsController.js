@@ -8,20 +8,12 @@ function ElementsController(Element) {
   self.all = [];
   self.addElement = addElement;
   self.removeElement = removeElement;
-  self.newElement = {};
   self.selectedElement;
+  self.fact = {};
 
   self.getElements = function() {
     self.all = Element.query();
   }
-
-  function addElement() {
-
-  };
-
-  function removeElement(id) {
-
-  };
 
   self.selectElement = function(element) {
     Element.get({id: element._id}, function(ele) {
@@ -49,6 +41,17 @@ function ElementsController(Element) {
   self.transform = function(n) {
     return "rotate("+n+"deg)";
   }
+
+  self.addFact = function() {
+    if (self.fact._id) {
+      Fact.update({id: self.fact._id}, self.fact, function() {self.fact = {}});
+    } else {
+      Fact.save(self.fact, function(fact) {
+        self.fact.elem_id = self.selectedElement._id;
+        self.fact = {};
+      });
+    };
+  };
 
   self.getElements();
 
