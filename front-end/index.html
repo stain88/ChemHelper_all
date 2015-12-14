@@ -10,6 +10,7 @@
   <script src="js/app.js"></script>
   <script src="js/controllers/elementsController.js"></script>
   <script src="js/models/element.js"></script>
+  <script src="js/models/fact.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cyborg/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=Mountains+of+Christmas' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
@@ -29,7 +30,7 @@
                 {{elem.selectedElement.name}} has {{elem.selectedElement.number}} protons, and a molar mass of {{elem.selectedElement.molar}}. It belongs to the {{elem.selectedElement.group.split(" ")[1]}} elements.
                 <h3>Facts</h3>
 
-                <form class="form-horizontal" name="elem.newFact" ng-submit="main.addFact()">
+                <form class="form-horizontal" name="elem.newFact" ng-submit="elem.addFact()">
                   <fieldset>
                     <legend class="text-center">Add/Edit Fact</legend>
                     <div class="form-group">

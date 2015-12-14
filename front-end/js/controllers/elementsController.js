@@ -2,12 +2,10 @@ angular
   .module('ElementsApp')
   .controller('ElementsController', ElementsController);
 
-ElementsController.$inject = ['Element'];
-function ElementsController(Element) {
+ElementsController.$inject = ['Element', 'Fact'];
+function ElementsController(Element, Fact) {
   var self = this;
   self.all = [];
-  self.addElement = addElement;
-  self.removeElement = removeElement;
   self.selectedElement;
   self.fact = {};
 
@@ -20,7 +18,6 @@ function ElementsController(Element) {
       self.selectedElement = ele.element;
       self.selectedElement.protonSize = Math.sqrt(ele.element.number)+20;
       self.selectedElement.rings = rings(ele.element.electrons);
-      console.log(self.selectedElement.rings);
     });
   }
 
@@ -29,12 +26,10 @@ function ElementsController(Element) {
   }
 
   function rings(arr) {
-    console.log(arr);
     var count = 0;
     for (var i=0;i<arr.length; i++) {
       if (arr[i]!=="") count+=1;
     }
-    console.log(count);
     return count;
   }
 
@@ -46,8 +41,8 @@ function ElementsController(Element) {
     if (self.fact._id) {
       Fact.update({id: self.fact._id}, self.fact, function() {self.fact = {}});
     } else {
+      self.fact.elem_id = self.selectedElement._id;
       Fact.save(self.fact, function(fact) {
-        self.fact.elem_id = self.selectedElement._id;
         self.fact = {};
       });
     };
