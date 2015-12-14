@@ -43,10 +43,6 @@
   outline: 2px solid silver;
 }
 
-svg {
-  margin: 0 auto;
-}
-
 text {
   font-family: 'Mountains of Christmas', cursive;
   font-size: 20px;
@@ -54,7 +50,6 @@ text {
 
 #atom {
   width: 100%;
-  border: 1px solid white;
 }
 
 .electronK {
