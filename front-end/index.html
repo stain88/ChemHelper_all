@@ -18,9 +18,13 @@
   <div class="container">
     <main ng-controller = "ElementsController as elem">
       <h1 text-center>Periodic Table</h1>
+      <ul>
+        <li ng-repeat="e in elem.selectedElement.electrons track by $index">{{e}}</li>
+      </ul>
+      {{elem.selectedElement.electrons}}
       <section id="#info" ng-show="elem.selectedElement.name">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-6">
             <div class="panel panel-info">
               <div class="panel-heading">
                 <h2 class="panel-title">{{elem.selectedElement.name}}</h2>
@@ -31,12 +35,18 @@
             </div>
           </div>
           
-          <div class="col-md-4">
-            <g>
-              <svg id="atom">
+          <div class="col-md-6">
+            <svg id="atom" height="600">
+              <g>
                 <circle cx="50%" cy="50%" ng-attr-r="{{elem.selectedElement.protonSize}}" stroke="white" fill="yellow" />
-              </svg>
-            </g>
+                <g ng-repeat="electron in elem.selectedElement.electrons track by $index" ng-init="shellIndex = $index">
+                  <g ng-repeat="e in elem.range(electron) track by $index" ng-init="eIndex = $index">
+                    <circle cx="50%" cy="50%" r="5" fill="lightblue" ng-class="{'electronS': shellIndex===0, 'electronP': shellIndex===1}"/>
+                  </g>
+                </g> 
+                <!-- <circle cx="50%" cy="50%" r="5" stroke="lightblue" fill="lightblue" ng-repeat="electron in elem.selectedElement.electrons" class="electron"/> -->
+              </g>
+            </svg>
           </div>
         </div>
       </section>

@@ -56,3 +56,21 @@ text {
   width: 100%;
   border: 1px solid white;
 }
+
+.electronS {
+  animation: electronSOrbit 4s linear infinite;
+}
+
+.electronP {
+  animation: electronPOrbit 6s linear infinite;
+}
+
+@keyframes electronSOrbit {
+  from { transform: rotate(0deg) translateX(70px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(70px) rotate(-360deg); }
+}
+
+@keyframes electronPOrbit {
+  from {transform: rotate(0deg) translateX(150px) rotate(0deg);}
+  to {transform: rotate(360deg) translateX(150px) rotate(-360deg);}
+}

@@ -30,6 +30,10 @@ function ElementsController(Element) {
     });
   }
 
+  self.range = function(n) {
+    return new Array(n);
+  }
+
   self.getElements();
 
 }
