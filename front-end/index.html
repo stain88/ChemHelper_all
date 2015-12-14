@@ -17,7 +17,7 @@
 <body>
   <div class="container">
     <main ng-controller = "ElementsController as elem">
-      <h1 text-center>Periodic Table</h1>
+      <h1 class="text-center">Periodic Table</h1>
       <section id="#info" ng-show="elem.selectedElement.name">
         <div class="row">
           <div class="col-md-6">
@@ -27,6 +27,20 @@
               </div>
               <div class="panel-body">
                 {{elem.selectedElement.name}} has {{elem.selectedElement.number}} protons, and a molar mass of {{elem.selectedElement.molar}}. It belongs to the {{elem.selectedElement.group.split(" ")[1]}} elements.
+                <h3>Facts</h3>
+
+                <form class="form-horizontal" name="elem.newFact" ng-submit="main.addFact()">
+                  <fieldset>
+                    <legend class="text-center">Add/Edit Fact</legend>
+                    <div class="form-group">
+                      <div class="col-md-12">
+                        <input class="form-control" name="name" ng-model="elem.fact.name" placeholder="Title">
+                        <input class="form-control" name="description" ng-model="elem.fact.description" placeholder="Description">
+                        <button type="submit" class="btn btn-success btn-block">Submit</button>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
               </div>
             </div>
           </div>
@@ -51,8 +65,7 @@
                   <g ng-repeat="e in elem.range(elem.selectedElement.electrons[shellIndex]) track by $index" ng-init="eIndex = $index">  
                     <circle cx="50%" cy="50%" r="5" fill="url(#electron)" ng-class="{electronK: shellIndex===0, electronL: shellIndex===1, electronM: shellIndex===2, electronN: shellIndex===3, electronO: shellIndex===4, electronP: shellIndex===5, electronQ: shellIndex===6}"/>
                   </g>
-                </g> 
-                <!-- <circle cx="50%" cy="50%" r="5" stroke="lightblue" fill="lightblue" ng-repeat="electron in elem.selectedElement.electrons" class="electron"/> -->
+                </g>
               </g>
             </svg>
           </div>
