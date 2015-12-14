@@ -46,3 +46,13 @@ function factUpdate(req, res) {
     });
   });
 };
+
+function factDelete(req, res) {
+  var id = req.params.id;
+  Fact.remove({_id: id}, function(err) {
+    if (err) return res.json({message: 'could not delete fact: ' + err});
+
+    res.json({message: 'fact successfully deleted'});
+  });
+};
+

@@ -50,7 +50,7 @@ function updateElement(req, res) {
 function deleteElement(req, res) {
   var id = req.params.id;
   Element.remove({_id: id}, function(err) {
-    if (err) res.json({message: 'coudl not delete element: ' + err});
+    if (err) res.json({message: 'could not delete element: ' + err});
 
     res.json({message: 'element successfully deleted'});
   });
