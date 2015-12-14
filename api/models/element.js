@@ -7,7 +7,8 @@ var elementSchema = new mongoose.Schema({
   position: Number,
   small: String,
   molar: Number,
-  electrons: []
+  electrons: [],
+  facts: [{type: mongoose.Schema.ObjectId, ref: 'Fact'}]
 })
 
 module.exports = mongoose.model('Element', elementSchema);
