@@ -25,12 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(morgan('dev'));
-app.use(cors({
-  origin: 'http://localhost:8000',
-  methods: ['GET', 'PUT', 'POST', 'OPTIONS', 'DELETE'],
-  allowedHeaders: 'Content-Type, Access-Control-Allow-Origin',
-  credentials: true
-}));
+app.use(cors());
 
 var routes = require(path.join(__dirname,'config', 'routes'));
 app.use('/api', routes);

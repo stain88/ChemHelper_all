@@ -42,7 +42,7 @@ function factUpdate(req, res) {
     fact.save(function(err) {
       if (err) return res.json({message: 'could not update fact: ' + err});
 
-      res.json({message: 'fact successfully updated', fact: fact});
+      return res.json({message: 'fact successfully updated', fact: fact});
     });
   });
 };
