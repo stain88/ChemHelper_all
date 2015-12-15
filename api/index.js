@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(cors({
-  origin: true,
+  origin: 'http://localhost:8000',
   methods: 'GET, PUT, POST, PATCH, DELETE, OPTIONS',
   credentials: true
 }));
