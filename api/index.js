@@ -30,4 +30,4 @@ app.use(cors());
 var routes = require(path.join(__dirname,'config', 'routes'));
 app.use('/api', routes);
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
