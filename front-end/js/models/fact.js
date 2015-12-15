@@ -5,6 +5,6 @@ angular
 Fact.$inject = ['$resource', 'API'];
 function Fact($resource, API) {
   return $resource(API + '/facts/:id', null, {
-
+    'update': {method: "PUT"}
   });
 };

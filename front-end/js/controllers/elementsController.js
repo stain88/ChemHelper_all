@@ -40,6 +40,7 @@ function ElementsController(Element, Fact) {
   self.addFact = function() {
     if (self.fact._id) {
       Fact.update({id: self.fact._id}, self.fact, function() {self.fact = {}});
+      console.log("updated fact");
     } else {
       self.fact.elem_id = self.selectedElement._id;
       Fact.save(self.fact, function(fact) {
@@ -47,6 +48,10 @@ function ElementsController(Element, Fact) {
       });
     };
   };
+
+  self.editFact = function(fact) {
+    self.fact = fact;
+  }
 
   self.getElements();
 
