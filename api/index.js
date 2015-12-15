@@ -28,7 +28,7 @@ app.use(morgan('dev'));
 app.use(cors({
   origin: 'http://localhost:8000',
   methods: ['GET', 'PUT', 'POST', 'OPTIONS', 'DELETE'],
-  allowedHeaders: 'Content-Type',
+  allowedHeaders: 'Content-Type, Access-Control-Allow-Origin',
   credentials: true
 }));
 
