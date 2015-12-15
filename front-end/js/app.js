@@ -1,7 +1,8 @@
 angular
-  .module('ElementsApp', ['ngResource', 'ui.bootstrap', 'ui.router'])
+  .module('ElementsApp', ['ngResource', 'ui.bootstrap', 'ui.router', 'satellizer'])
   .constant('API', 'http://chemistry-learner.herokuapp.com/api')
-  .config(MainRouter);
+  .config(MainRouter)
+  .config(oauthConfig);
 
 function MainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider
