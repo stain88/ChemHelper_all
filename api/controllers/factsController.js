@@ -24,7 +24,7 @@ function factCreate(req, res) {
 
 function factShow(req, res) {
   var id = req.params.id;
-  Fact.findById({_id: id}, function(err, element) {
+  Fact.findById({_id: id}, function(err, fact) {
     if (err) return res.json({message: 'could not find fact: ' + err});
 
     res.json({fact: fact});
