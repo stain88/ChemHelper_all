@@ -32,16 +32,16 @@ function factShow(req, res) {
 };
 
 function factUpdate(req, res) {
-  var id = req.params.id;
-  Fact.findByIdAndUpdate({_id: id}, function(err, fact) {
+  var id = req.body._id;
+  Fact.findById({_id: id}, function(err, fact) {
     if (err) return res.json({message: 'could not find fact: ' + err});
-
+    
     fact.name = req.body.name || fact.name;
     fact.description = req.body.description || fact.name;
 
     fact.save(function(err) {
       if (err) return res.json({message: 'could not update fact: ' + err});
-
+      
       return res.json({message: 'fact successfully updated', fact: fact});
     });
   });
