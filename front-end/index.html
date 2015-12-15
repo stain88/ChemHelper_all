@@ -29,6 +29,18 @@
               <div class="panel-body">
                 {{elem.selectedElement.name}} has {{elem.selectedElement.number}} protons, and a molar mass of {{elem.selectedElement.molar}}. It belongs to the {{elem.selectedElement.group.split(" ")[1]}} elements.
                 <h3>Facts</h3>
+                <div class="row">
+                  <div class="col-sm-4" ng-repeat="fact in elem.selectedElement.facts">
+                    <div class="panel panel-primary">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">{{fact.name}}</h3>
+                      </div>
+                      <div class="panel-body">
+                        {{fact.description}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 <form class="form-horizontal" name="elem.newFact" ng-submit="elem.addFact()">
                   <fieldset>

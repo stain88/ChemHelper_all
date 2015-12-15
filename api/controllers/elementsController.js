@@ -1,7 +1,7 @@
 var Element = require('../models/element');
 
 function getElements(req, res) {
-  Element.find(function(err, elements) {
+  Element.find({}).populate('facts').exec(function(err, elements) {
     if (err) res.json({message: 'could not find any elements'});
 
     res.json({elements: elements});
@@ -19,7 +19,7 @@ function addElement(req, res) {
 
 function getElement(req, res) {
   var id = req.params.id;
-  Element.findById({_id: id}, function(err, element) {
+  Element.findById({_id: id}).populate('facts').exec(function(err, element) {
     if (err) res.json({message: 'could not find element: ' + err});
 
     res.json({element: element});
