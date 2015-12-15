@@ -26,7 +26,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(cors({
-  origin: 'http://localhost:8000'
+  origin: 'http://localhost:8000',
+  methods: ['GET', 'PUT', 'POST', 'OPTIONS', 'DELETE'],
+  credentials: true
 }));
 
 var routes = require(path.join(__dirname,'config', 'routes'));
