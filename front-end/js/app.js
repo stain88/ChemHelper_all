@@ -9,6 +9,10 @@ function MainRouter($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'views/home.html'
     })
+    .state('about', {
+      url: '/about',
+      templateUrl: 'views/about.html'
+    })
     .state('learn', {
       url: '/learn',
       templateUrl: 'views/learn.html'
