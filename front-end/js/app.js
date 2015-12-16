@@ -17,6 +17,10 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     .state('learn', {
       url: '/learn',
       templateUrl: 'views/learn.html'
+    })
+    .state('quiz', {
+      url: '/quiz',
+      templateUrl: 'views/quiz.html'
     });
 
   $urlRouterProvider.otherwise('/');

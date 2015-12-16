@@ -1,3 +1,8 @@
-<div ng-controller="SignupController as signup">
-  <button ng-click="signup.authenticate('facebook')">Sign in with Facebook</button>
+<div>
+  <div class="jumbotron">
+    <h1>Welcome to ChemHelper</h1>
+    <button ng-if="!signup.isAuthenticated()" ng-click="signup.authenticate('facebook')" class="btn btn-primary"><i class="fa fa-facebook-square"></i> Sign in with Facebook</button>
+    <button ng-if="signup.isAuthenticated()" class="btn btn-success btn-lg" ui-sref="learn">Start Learning</button>
+    <button ng-if="signup.isAuthenticated()" class="btn btn-warning btn-lg" ui-sref="quiz">Start Quizzing</button>
+  </div>
 </div>

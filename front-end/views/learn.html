@@ -1,77 +1,83 @@
 <div ng-controller = "ElementsController as elem">
-  <h1 class="text-center">Periodic Table</h1>
-  <section id="#info" ng-show="elem.selectedElement.name">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h2 class="panel-title">{{elem.selectedElement.name}}</h2>
-          </div>
-          <div class="panel-body">
-            {{elem.selectedElement.name}} has {{elem.selectedElement.number}} protons, and a molar mass of {{elem.selectedElement.molar}}. It belongs to the {{elem.selectedElement.group.split(" ")[1]}} elements.
-            <h3>Facts</h3>
-            <div class="row">
-              <div class="col-sm-4" ng-repeat="fact in elem.selectedElement.facts">
-                <div class="panel panel-primary" ng-click="elem.editFact(fact)">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">{{fact.name}}</h3>
-                  </div>
-                  <div class="panel-body">
-                    {{fact.description}}
+  <section ng-if="!signup.isAuthenticated()">
+    <h1 class="text-center">Please log in to learn</h1>
+  </section>
+
+  <section ng-if="signup.isAuthenticated()">
+    <h1 class="text-center">Periodic Table</h1>
+    <section id="#info" ng-show="elem.selectedElement.name">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h2 class="panel-title">{{elem.selectedElement.name}}</h2>
+            </div>
+            <div class="panel-body">
+              {{elem.selectedElement.name}} has {{elem.selectedElement.number}} protons, and a molar mass of {{elem.selectedElement.molar}}. It belongs to the {{elem.selectedElement.group.split(" ")[1]}} elements.
+              <h3>Facts</h3>
+              <div class="row">
+                <div class="col-sm-4" ng-repeat="fact in elem.selectedElement.facts">
+                  <div class="panel panel-primary" ng-click="elem.editFact(fact)">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">{{fact.name}}</h3>
+                    </div>
+                    <div class="panel-body">
+                      {{fact.description}}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <form class="form-horizontal" name="elem.newFact" ng-submit="elem.addFact()">
-              <fieldset>
-                <legend class="text-center">Add Fact</legend>
-                <div class="form-group">
-                  <div class="col-md-12">
-                    <input class="form-control" name="name" ng-model="elem.fact.name" placeholder="Title">
-                    <input class="form-control" name="description" ng-model="elem.fact.description" placeholder="Description">
-                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+              <form class="form-horizontal" name="elem.newFact" ng-submit="elem.addFact()">
+                <fieldset>
+                  <legend class="text-center">Add Fact</legend>
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <input class="form-control" name="name" ng-model="elem.fact.name" placeholder="Title">
+                      <input class="form-control" name="description" ng-model="elem.fact.description" placeholder="Description">
+                      <button type="submit" class="btn btn-success btn-block">Submit</button>
+                    </div>
                   </div>
-                </div>
-              </fieldset>
-            </form>
+                </fieldset>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="col-md-6">
-        <svg id="atom" height="600">
-          <defs>
-            <radialGradient id="nucleus" cx="0.5" cy="0.5" r="0.5" fx="0.25" fy="0.25">
-              <stop offset="0%" stop-color="white"/>
-              <stop offset="100%" stop-color="yellow"/>
-            </radialGradient>
-            <radialGradient id="electron" cx="0.5" cy="0.5" r="0.5" fx="0.25" fy="0.25">
-              <stop offset="0%" stop-color="white"/>
-              <stop offset="100%" stop-color="lightblue"/>
-            </radialGradient>
-          </defs>
-          <g>
-            <circle cx="50%" cy="50%" ng-attr-r="{{elem.selectedElement.protonSize}}" stroke="yellow" fill="url(#nucleus)"/>
-            <text x="50%" y="50%" alignment-baseline="middle" text-anchor="middle">{{elem.selectedElement.number}}</text>
-            <g ng-repeat="electron in elem.range(elem.selectedElement.rings) track by $index" ng-init="shellIndex = $index">
-              <circle cx="50%" cy="50%" ng-attr-r="{{70+shellIndex*30}}" stroke="lightblue" fill="transparent"/>
-              <g ng-repeat="e in elem.range(elem.selectedElement.electrons[shellIndex]) track by $index" ng-init="eIndex = $index">  
-                <circle cx="50%" cy="50%" r="5" fill="url(#electron)" ng-class="{electronK: shellIndex===0, electronL: shellIndex===1, electronM: shellIndex===2, electronN: shellIndex===3, electronO: shellIndex===4, electronP: shellIndex===5, electronQ: shellIndex===6}"/>
+        
+        <div class="col-md-6">
+          <svg id="atom" height="600">
+            <defs>
+              <radialGradient id="nucleus" cx="0.5" cy="0.5" r="0.5" fx="0.25" fy="0.25">
+                <stop offset="0%" stop-color="white"/>
+                <stop offset="100%" stop-color="yellow"/>
+              </radialGradient>
+              <radialGradient id="electron" cx="0.5" cy="0.5" r="0.5" fx="0.25" fy="0.25">
+                <stop offset="0%" stop-color="white"/>
+                <stop offset="100%" stop-color="lightblue"/>
+              </radialGradient>
+            </defs>
+            <g>
+              <circle cx="50%" cy="50%" ng-attr-r="{{elem.selectedElement.protonSize}}" stroke="yellow" fill="url(#nucleus)"/>
+              <text x="50%" y="50%" alignment-baseline="middle" text-anchor="middle">{{elem.selectedElement.number}}</text>
+              <g ng-repeat="electron in elem.range(elem.selectedElement.rings) track by $index" ng-init="shellIndex = $index">
+                <circle cx="50%" cy="50%" ng-attr-r="{{70+shellIndex*30}}" stroke="lightblue" fill="transparent"/>
+                <g ng-repeat="e in elem.range(elem.selectedElement.electrons[shellIndex]) track by $index" ng-init="eIndex = $index">  
+                  <circle cx="50%" cy="50%" r="5" fill="url(#electron)" ng-class="{electronK: shellIndex===0, electronL: shellIndex===1, electronM: shellIndex===2, electronN: shellIndex===3, electronO: shellIndex===4, electronP: shellIndex===5, electronQ: shellIndex===6}"/>
+                </g>
               </g>
             </g>
-          </g>
-        </svg>
+          </svg>
+        </div>
       </div>
-    </div>
-  </section>
-  <section id="table">
-    <!-- <input type="text" ng-model="elem.selectedElement" uib-typeahead="element as element.name for element in elem.all | filter:$viewValue | limitTo:8" class="form-control" autocomplete="off"> -->
-    <svg width="900" height="600">
-      <g ng-repeat="element in elem.all" ng-click="elem.selectElement(element)">
-        <rect width="50" height="60" ng-attr-x="{{element.position * 50}}" ng-attr-y="{{(element.electrons.length - 1) * 60}}" ng-class="{hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="{{element.group}}"/>
-        <text width="50" height="60" ng-attr-x="{{element.position * 50 + 25}}" ng-attr-y="{{(element.electrons.length - 1) * 60 + 30}}" alignment-baseline="middle" text-anchor="middle">{{element.small}}</text>
-      </g>
-    </svg>
+    </section>
+    <section id="table">
+      <!-- <input type="text" ng-model="elem.selectedElement" uib-typeahead="element as element.name for element in elem.all | filter:$viewValue | limitTo:8" class="form-control" autocomplete="off"> -->
+      <svg width="900" height="600">
+        <g ng-repeat="element in elem.all" ng-click="elem.selectElement(element)">
+          <rect width="50" height="60" ng-attr-x="{{element.position * 50}}" ng-attr-y="{{(element.electrons.length - 1) * 60}}" ng-class="{hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="{{element.group}}"/>
+          <text width="50" height="60" ng-attr-x="{{element.position * 50 + 25}}" ng-attr-y="{{(element.electrons.length - 1) * 60 + 30}}" alignment-baseline="middle" text-anchor="middle">{{element.small}}</text>
+        </g>
+      </svg>
+    </section>
   </section>
 </div>

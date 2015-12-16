@@ -16,6 +16,7 @@
   <script src="js/models/fact.js"></script>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cyborg/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Mountains+of+Christmas' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -34,11 +35,13 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li ><a ui-sref="about">About</a></li>
-          <li ><a ui-sref="learn">Learn</a></li>
+          <li><a ui-sref="about">About</a></li>
+          <li ng-if="signup.isAuthenticated()"><a ui-sref="learn">Learn</a></li>
+          <li ng-if="signup.isAuthenticated()"><a ui-sref="quiz">Quiz</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Link</a></li>
+          <li ng-if="signup.isAuthenticated()"><a ng-click="signup.logout()">Log Out</a></li>
+          <li ng-if="!signup.isAuthenticated()"><a ng-click="signup.authenticate('facebook')">Log In</a></li>
         </ul>
       </div>
     </div>

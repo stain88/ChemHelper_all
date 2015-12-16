@@ -1,0 +1,9 @@
+<div>
+  <section ng-if="signup.isAuthenticated()">
+    <h1 class="text-center">Quiz be here</h1>
+  </section>
+
+  <section ng-if="!signup.isAuthenticated()">
+    <h1 class="text-center">Please log in to test your knowledge</h1>
+  </section>
+</div>

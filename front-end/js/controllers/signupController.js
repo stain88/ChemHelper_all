@@ -9,4 +9,12 @@ function SignupController($auth) {
   self.authenticate = function(provider) {
     $auth.authenticate(provider);
   }
+
+  self.isAuthenticated = function() {
+    return $auth.isAuthenticated();
+  }
+
+  self.logout = function() {
+    return $auth.logout();
+  }
 }
