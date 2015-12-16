@@ -20,4 +20,12 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     });
 
   $urlRouterProvider.otherwise('/');
+};
+
+oauthConfig.$inject = ['API', '$authProvider']
+function oauthConfig(API, $authProvider) {
+  $authProvider.facebook({
+    url: API + '/auth/facebook', 
+    clientId: '157948801229043'
+  })
 }
