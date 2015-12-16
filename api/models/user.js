@@ -5,7 +5,7 @@ var userSchema = new mongoose.Schema({
   email: String,
   picture: String,
   facebookId: String,
-  score: Number
+  score: {type: Number, default: 0}
 })
 
 module.exports = mongoose.model('User', userSchema);

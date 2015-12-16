@@ -3,6 +3,7 @@ var express  = require('express'),
 
 var elementsController  = require('../controllers/elementsController.js'),
     factsController     = require('../controllers/factsController.js'),
+    usersController     = require('../controllers/usersController.js'),
     authController      = require('../controllers/authenticationsController.js');
 
 router.post('/auth/facebook', authController.fblogin)
@@ -26,5 +27,11 @@ router.route('/facts/:id')
   .put(factsController.factUpdate)
   .patch(factsController.factUpdate)
   .delete(factsController.factDelete);
+
+router.route('/users')
+  .get(usersController.getUsers);
+
+router.route('/users/:id')
+  .get(usersController.getUser);
 
 module.exports = router;

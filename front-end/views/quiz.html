@@ -1,6 +1,11 @@
 <div>
   <section ng-if="signup.isAuthenticated()">
+    <div class="progress progress-striped active">
+      <div class="progress-bar" ng-class="{'progress-bar-danger': signup.user.score < 20, 'progress-bar-warning': signup.user.score >= 20 && signup.user.score < 60, 'progress-bar-success': signup.user.score >= 60}" style="width: {{signup.user.score}}%"></div>
+    </div>
     <h1 class="text-center">Quiz be here</h1>
+    
+    <button ng-click="signup.user.score = signup.user.score + 1">Increase</button>
   </section>
 
   <section ng-if="!signup.isAuthenticated()">
