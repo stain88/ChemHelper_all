@@ -1,6 +1,6 @@
 angular
   .module('ElementsApp', ['ngResource', 'ui.bootstrap', 'ui.router', 'satellizer'])
-  .constant('API', 'http://chemistry-learner.herokuapp.com/api')
+  .constant('API', 'http://localhost:3000/api')
   .config(MainRouter)
   .config(oauthConfig);
 

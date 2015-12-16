@@ -1,8 +1,11 @@
 var express  = require('express'),
     router   = express.Router();
 
-var elementsController = require('../controllers/elementsController.js');
-var factsController = require('../controllers/factsController.js');
+var elementsController  = require('../controllers/elementsController.js'),
+    factsController     = require('../controllers/factsController.js'),
+    authController      = require('../controllers/authenticationsController.js');
+
+router.post('/auth/facebook', authController.fblogin)
 
 router.route('/elements')
   .get(elementsController.getElements)

@@ -25,7 +25,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(morgan('dev'));
-app.use(cors());
+app.use(cors({
+    origin: config.appUrl,
+    credentials: true
+}));
 
 var routes = require(path.join(__dirname,'config', 'routes'));
 app.use('/api', routes);
