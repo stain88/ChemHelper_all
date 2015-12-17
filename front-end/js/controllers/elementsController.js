@@ -42,7 +42,6 @@ function ElementsController(Element, Fact) {
       
       Fact.update({id: self.fact._id}, self.fact, function() {
         self.fact = {};
-        
       });
     } else {
       self.fact.elem_id = self.selectedElement._id;

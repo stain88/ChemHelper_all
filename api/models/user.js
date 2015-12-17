@@ -5,7 +5,8 @@ var userSchema = new mongoose.Schema({
   email: String,
   picture: String,
   facebookId: String,
-  score: {type: Number, default: 0}
+  totalQuestions: {type: Number, default: 0},
+  correctAnswers: {type: Number, default: 0}
 })
 
 module.exports = mongoose.model('User', userSchema);

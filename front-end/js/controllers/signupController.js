@@ -24,7 +24,6 @@ function SignupController($auth, User) {
     var id = $auth.getPayload()._id;
     User.get({id: id}, function(user) {
       self.user = user.user;
-      console.log(self.user);
     });
   };
 

@@ -1,11 +1,30 @@
-<div>
+<div ng-controller="QuizController as quiz">
   <section ng-if="signup.isAuthenticated()">
     <div class="progress progress-striped active">
-      <div class="progress-bar" ng-class="{'progress-bar-danger': signup.user.score < 20, 'progress-bar-warning': signup.user.score >= 20 && signup.user.score < 60, 'progress-bar-success': signup.user.score >= 60}" style="width: {{signup.user.score}}%"></div>
+      <div class="progress-bar" ng-class="{'progress-bar-danger': quiz.user.score < 30, 'progress-bar-warning': quiz.user.score >= 30 && quiz.user.score < 60, 'progress-bar-success': quiz.user.score >= 60}" style="width: {{quiz.user.score}}%">{{quiz.user.score}}%</div>
     </div>
-    <h1 class="text-center">Quiz be here</h1>
-    
-    <button ng-click="signup.user.score = signup.user.score + 1">Increase</button>
+    <h1 class="text-center">Test your knowledge</h1>
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="panel panel-primary" ng-if="quiz.question">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{quiz.question}}</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-6" ng-repeat="ele in quiz.questionElements" ng-click="quiz.checkAnswer(ele)">
+                <button class="btn btn-primary btn-block">{{ele.answer}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <button class="btn btn-lg btn-info" ng-click="quiz.getRandomElements()">New Question</button>
+    <button class="btn btn-lg btn-danger" ng-click="quiz.resetScore()">Reset Score</button>
   </section>
 
   <section ng-if="!signup.isAuthenticated()">

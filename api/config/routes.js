@@ -32,6 +32,8 @@ router.route('/users')
   .get(usersController.getUsers);
 
 router.route('/users/:id')
-  .get(usersController.getUser);
+  .get(usersController.getUser)
+  .put(usersController.userUpdate)
+  .patch(usersController.userUpdate);
 
 module.exports = router;

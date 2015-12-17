@@ -37,7 +37,7 @@ function factUpdate(req, res) {
     if (err) return res.json({message: 'could not find fact: ' + err});
     
     fact.name = req.body.name || fact.name;
-    fact.description = req.body.description || fact.name;
+    fact.description = req.body.description || fact.description;
 
     fact.save(function(err) {
       if (err) return res.json({message: 'could not update fact: ' + err});
