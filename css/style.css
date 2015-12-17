@@ -1,5 +1,5 @@
 * {
-  font-family: 'Mountains of Christmas', cursive;
+  font-family: 'Coda', cursive;
 }
 
 .Element { stroke: white;stroke-width: 2; }
@@ -16,8 +16,7 @@
 #atom { width: 100%; }
 
 text {
-  /*font-family: 'Mountains of Christmas', cursive;*/
-  font-family: 'Coda', cursive;
+  font-family: 'Mountains of Christmas', cursive;
   font-size: 20px;
 }
 
@@ -27,63 +26,168 @@ h1 {
 }
 
 .electronK {
+  -webkit-animation: electronKOrbit 3s linear infinite;
+  -moz-animation: electronKOrbit 3s linear infinite;
+  -o-animation: electronKOrbit 3s linear infinite;
   animation: electronKOrbit 3s linear infinite;
 }
 
+@-webkit-keyframes electronKOrbit {
+  0% { transform: rotate(0deg) translate(70px) rotate(0deg); }
+  100% { transform: rotate(360deg) translate(70px) rotate(-360deg); }
+}
+@-moz-keyframes electronKOrbit {
+  0% { transform: rotate(0deg) translate(70px) rotate(0deg); }
+  100% { transform: rotate(360deg) translate(70px) rotate(-360deg); }
+}
+@-o-keyframes electronKOrbit {
+  0% { transform: rotate(0deg) translate(70px) rotate(0deg); }
+  100% { transform: rotate(360deg) translate(70px) rotate(-360deg); }
+}
 @keyframes electronKOrbit {
   0% { transform: rotate(0deg) translate(70px) rotate(0deg); }
-  100%   { transform: rotate(360deg) translate(70px) rotate(-360deg); }
+  100% { transform: rotate(360deg) translate(70px) rotate(-360deg); }
 }
 
 .electronL {
+  -webkit-animation: electronLOrbit 5s linear infinite;
+  -moz-animation: electronLOrbit 5s linear infinite;
+  -o-animation: electronLOrbit 5s linear infinite;
   animation: electronLOrbit 5s linear infinite;
 }
 
+@-webkit-keyframes electronLOrbit {
+  from {transform: rotate(0deg) translate(100px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(100px) rotate(-360deg);}
+}
+@-moz-keyframes electronLOrbit {
+  from {transform: rotate(0deg) translate(100px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(100px) rotate(-360deg);}
+}
+@-o-keyframes electronLOrbit {
+  from {transform: rotate(0deg) translate(100px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(100px) rotate(-360deg);}
+}
 @keyframes electronLOrbit {
   from {transform: rotate(0deg) translate(100px) rotate(0deg);}
   to {transform: rotate(360deg) translate(100px) rotate(-360deg);}
 }
 
 .electronM {
+  -webkit-animation: electronMOrbit 7s linear infinite;
+  -moz-animation: electronMOrbit 7s linear infinite;
+  -o-animation: electronMOrbit 7s linear infinite;
   animation: electronMOrbit 7s linear infinite;
 }
 
+@-webkit-keyframes electronMOrbit {
+  from {transform: rotate(0deg) translate(130px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(130px) rotate(-360deg);}
+}
+@-moz-keyframes electronMOrbit {
+  from {transform: rotate(0deg) translate(130px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(130px) rotate(-360deg);}
+}
+@-o-keyframes electronMOrbit {
+  from {transform: rotate(0deg) translate(130px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(130px) rotate(-360deg);}
+}
 @keyframes electronMOrbit {
   from {transform: rotate(0deg) translate(130px) rotate(0deg);}
   to {transform: rotate(360deg) translate(130px) rotate(-360deg);}
 }
 
 .electronN {
+  -webkit-animation: electronNOrbit 9s linear infinite;
+  -moz-animation: electronNOrbit 9s linear infinite;
+  -o-animation: electronNOrbit 9s linear infinite;
   animation: electronNOrbit 9s linear infinite;
 }
 
+@-webkit-keyframes electronNOrbit {
+  from {transform: rotate(0deg) translate(160px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(160px) rotate(-360deg);}
+}
+@-moz-keyframes electronNOrbit {
+  from {transform: rotate(0deg) translate(160px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(160px) rotate(-360deg);}
+}
+@-o-keyframes electronNOrbit {
+  from {transform: rotate(0deg) translate(160px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(160px) rotate(-360deg);}
+}
 @keyframes electronNOrbit {
   from {transform: rotate(0deg) translate(160px) rotate(0deg);}
   to {transform: rotate(360deg) translate(160px) rotate(-360deg);}
 }
 
 .electronO {
+  -webkit-animation: electronOOrbit 11s linear infinite;
+  -moz-animation: electronOOrbit 11s linear infinite;
+  -o-animation: electronOOrbit 11s linear infinite;
   animation: electronOOrbit 11s linear infinite;
 }
 
+@-webkit-keyframes electronOOrbit {
+  from {transform: rotate(0deg) translate(190px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(190px) rotate(-360deg);}
+}
+@-moz-keyframes electronOOrbit {
+  from {transform: rotate(0deg) translate(190px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(190px) rotate(-360deg);}
+}
+@-o-keyframes electronOOrbit {
+  from {transform: rotate(0deg) translate(190px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(190px) rotate(-360deg);}
+}
 @keyframes electronOOrbit {
   from {transform: rotate(0deg) translate(190px) rotate(0deg);}
   to {transform: rotate(360deg) translate(190px) rotate(-360deg);}
 }
 
 .electronP {
+  -webkit-animation: electronPOrbit 13s linear infinite;
+  -moz-animation: electronPOrbit 13s linear infinite;
+  -o-animation: electronPOrbit 13s linear infinite;
   animation: electronPOrbit 13s linear infinite;
 }
 
+@-webkit-keyframes electronPOrbit {
+  from {transform: rotate(0deg) translate(220px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(220px) rotate(-360deg);}
+}
+@-moz-keyframes electronPOrbit {
+  from {transform: rotate(0deg) translate(220px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(220px) rotate(-360deg);}
+}
+@-o-keyframes electronPOrbit {
+  from {transform: rotate(0deg) translate(220px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(220px) rotate(-360deg);}
+}
 @keyframes electronPOrbit {
   from {transform: rotate(0deg) translate(220px) rotate(0deg);}
   to {transform: rotate(360deg) translate(220px) rotate(-360deg);}
 }
 
 .electronQ {
+  -webkit-animation: electronQOrbit 15s linear infinite;
+  -moz-animation: electronQOrbit 15s linear infinite;
+  -o-animation: electronQOrbit 15s linear infinite;
   animation: electronQOrbit 15s linear infinite;
 }
 
+@-webkit-keyframes electronQOrbit {
+  from {transform: rotate(0deg) translate(250px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(250px) rotate(-360deg);}
+}
+@-moz-keyframes electronQOrbit {
+  from {transform: rotate(0deg) translate(250px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(250px) rotate(-360deg);}
+}
+@-o-keyframes electronQOrbit {
+  from {transform: rotate(0deg) translate(250px) rotate(0deg);}
+  to {transform: rotate(360deg) translate(250px) rotate(-360deg);}
+}
 @keyframes electronQOrbit {
   from {transform: rotate(0deg) translate(250px) rotate(0deg);}
   to {transform: rotate(360deg) translate(250px) rotate(-360deg);}
