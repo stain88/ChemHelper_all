@@ -2,6 +2,7 @@
   <div class="jumbotron">
     <h1>Welcome to ChemHelper</h1>
     <button ng-if="!signup.isAuthenticated()" ng-click="signup.authenticate('facebook')" class="btn btn-social btn-facebook"><span class="fa fa-facebook-square"></span> Sign in with Facebook</button>
+    <button ng-if="!signup.isAuthenticated()" ng-click="signup.authenticate('github')" class="btn btn-social btn-github"><span class="fa fa-github-alt"></span> Sign in with Facebook</button>
     <button ng-if="signup.isAuthenticated()" class="btn btn-success btn-lg" ui-sref="learn">Start Learning</button>
     <button ng-if="signup.isAuthenticated()" class="btn btn-warning btn-lg" ui-sref="quiz">Start Quizzing</button>
   </div>
