@@ -4,7 +4,7 @@ module.exports = {
   'secret': process.env.PROJECT_FOUR_SECRET_KEY,
   'database': mongoUri,
   'domain': domainUri,
-  appUrl: 'http://localhost:8000',
+  appUrl: 'http://stain88.github.io/GA-ProjectFour/' || 'http://localhost:8000',
   oauth: {
     facebook: {
       accessTokenUrl: 'https://graph.facebook.com/v2.5/oauth/access_token',
