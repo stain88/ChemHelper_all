@@ -1,55 +1,24 @@
-.Element {
-  stroke: white;
-  stroke-width: 2;
-}
-
-.Alkali {
-  fill: hsl(225,70%,50%);
-} 
-
-.Nonmetal {
-  fill: green;
-}
-
-.OtherMetal {
-  fill: cyan;
-}
-
-.Noble {
-  fill: orange;
-}
-
-.Alkaline {
-  fill: red;
-}
-
-.Metalloid {
-  fill: purple;
-}
-
-.Halogen {
-  fill: pink;
-}
-
-.Transition {
-  fill: yellow;
-}
-
-.Lanthanoid, .Actinoid {
-  fill: gold;
-}
-
-.hover {
-  outline: 2px solid silver;
-}
+.Element { stroke: white;stroke-width: 2; }
+.Alkali { fill: hsl(225,70%,50%); } 
+.Nonmetal { fill: green; }
+.OtherMetal { fill: cyan; }
+.Noble { fill: orange; }
+.Alkaline { fill: red; }
+.Metalloid { fill: purple; }
+.Halogen { fill: pink; }
+.Transition { fill: yellow; }
+.Lanthanoid, .Actinoid { fill: gold; }
+.hover { outline: 2px solid silver; }
+#atom { width: 100%; }
 
 text {
   font-family: 'Mountains of Christmas', cursive;
   font-size: 20px;
 }
 
-#atom {
-  width: 100%;
+h1 {
+  font-family: 'Coda', cursive;
+  font-weight: 800;
 }
 
 .electronK {
