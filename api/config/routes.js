@@ -6,7 +6,8 @@ var elementsController  = require('../controllers/elementsController.js'),
     usersController     = require('../controllers/usersController.js'),
     authController      = require('../controllers/authenticationsController.js');
 
-router.post('/auth/facebook', authController.fblogin)
+router.post('/auth/facebook', authController.fblogin);
+router.post('/auth/github', authController.githublogin);
 
 router.route('/elements')
   .get(elementsController.getElements)

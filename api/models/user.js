@@ -5,6 +5,7 @@ var userSchema = new mongoose.Schema({
   email: String,
   picture: String,
   facebookId: String,
+  githubId: String,
   totalQuestions: {type: Number, default: 0},
   correctAnswers: {type: Number, default: 0}
 })

@@ -44,6 +44,43 @@ function fblogin(req, res) {
     });
 };
 
+function githublogin(req, res) {
+  var params = {
+    code: req.body.code,
+    client_id: req.body.clientId,
+    client_secret: process.env.CHEMHELPER_GITHUB_SECRET_KEY,
+    redirect_uri: config.appUrl + "/"
+  };
+
+  request.get({url: config.oauth.github.accessTokenUrl, qs: params})
+    .then(function(accessToken) {
+      return request.get({url: config.oauth.github.profileUrl, qs: accessToken, headers: {'User-Agent': 'Satellizer'}, json: true});
+    })
+    .then(function(profile) {
+      return User.findOne({email: profile.email})
+      .then(function(user) {
+        if (user) {
+          user.githubId = profile.id;
+        } else {
+          user = new User({
+            githubId: profile.id,
+            name: profile.name,
+            email: profile.email
+          });
+        }
+        return user.save();
+      })
+    })
+    .then(function(user) {
+      var token = jwt.sign(user, config.secret, {expiresIn: '24h'});
+      return res.send({token: token});
+    })
+    .catch(function(err) {
+      return res.status(500).json({message: err});
+    })
+};
+
 module.exports = {
-  fblogin: fblogin
+  fblogin: fblogin,
+  githublogin: githublogin
 }

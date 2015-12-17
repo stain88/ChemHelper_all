@@ -31,5 +31,9 @@ function oauthConfig(API, $authProvider) {
   $authProvider.facebook({
     url: API + '/auth/facebook', 
     clientId: '157948801229043'
-  })
+  });
+  $authProvider.github({
+    url: API + '/auth/github',
+    clientId: 'ba74c099e806a3426e66'
+  });
 }
