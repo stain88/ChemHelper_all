@@ -42,11 +42,13 @@ function ElementsController(Element, Fact) {
       
       Fact.update({id: self.fact._id}, self.fact, function() {
         self.fact = {};
+        self.selectElement(self.selectedElement)
       });
     } else {
       self.fact.elem_id = self.selectedElement._id;
       Fact.save(self.fact, function(fact) {
         self.fact = {};
+        self.selectElement(self.selectedElement)
       });
     };
   };
